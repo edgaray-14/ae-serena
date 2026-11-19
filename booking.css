@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --burgundy: #800020;
+  --gold: #C9A84C;
+  --ivory: #FFFFF0;
+  --ink: #2b1a1d;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* keeps section titles clear of the sticky navbar */
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--ivory);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ===== STICKY NAVBAR ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 32px;
+  background: var(--burgundy);
+  border-bottom: 3px solid var(--gold);
+}
+
+.navbar img {
+  height: 50px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--ivory);
+  text-decoration: none;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(60, 0, 15, 0.8) 0%, rgba(60, 0, 15, 0.2) 80%),
+    url("hero-serena.jpg") center / cover no-repeat;
+  background-color: var(--burgundy);
+}
+
+.hero-content {
+  padding: 60px 6vw;
+  max-width: 760px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  line-height: 1.1;
+  font-weight: normal;
+  color: var(--ivory);
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--burgundy);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 14px 38px;
+  border-radius: 3px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--ivory);
+}
+
+/* ===== SECTIONS ===== */
+.block {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 70px 24px 20px;
+}
+
+.block h2 {
+  font-size: 2rem;
+  font-weight: normal;
+  color: var(--burgundy);
+  margin-bottom: 8px;
+}
+
+.intro {
+  margin-bottom: 30px;
+}
+
+/* ===== ROOM CARDS (Flexbox, 2 per row) ===== */
+.room-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.room-card {
+  flex: 0 0 calc(50% - 12px);
+  background: #ffffff;
+  border: 1px solid #e6dfc6;
+  border-left: 6px solid var(--gold);
+  padding: 28px 26px;
+}
+
+.room-card h3 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: var(--burgundy);
+}
+
+.room-card .price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 4px 0 12px;
+}
+
+.room-card .price span {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #6b5a5d;
+}
+
+/* ===== COMPARISON TABLE ===== */
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 24px;
+}
+
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.compare th,
+.compare td {
+  padding: 13px 16px;
+  text-align: center;
+  border: 1px solid #e6dfc6;
+}
+
+/* Header row */
+.compare thead th {
+  background: #800020;
+  color: #ffffff;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+/* Feature names (first column) */
+.compare tbody th {
+  text-align: left;
+  background: #faf6e4;
+  color: var(--burgundy);
+}
+
+.compare thead th:first-child {
+  text-align: left;
+}
+
+.compare tbody tr:last-child td {
+  font-weight: bold;
+}
+
+/* Tick and cross symbols */
+.yes {
+  color: #1e8449;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.no {
+  color: #c0392b;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.booking-placeholder {
+  padding-bottom: 80px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--burgundy);
+  color: var(--ivory);
+  text-align: center;
+  padding: 22px;
+  border-top: 3px solid var(--gold);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+  .navbar {
+    padding: 10px 16px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .room-card {
+    flex-basis: 100%;
+  }
+
+  .compare th,
+  .compare td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
